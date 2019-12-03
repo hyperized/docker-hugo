@@ -15,5 +15,6 @@ LABEL description="Hugo in Docker"
 
 RUN apk -U add libsass
 COPY --from=builder /go/bin/hugo /hugo
-ENTRYPOINT ["hugo"]
-CMD ["version"]
+WORKDIR /project
+ENTRYPOINT ["/hugo"]
+CMD ["--help"]
